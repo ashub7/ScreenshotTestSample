@@ -65,7 +65,7 @@ fun LoginScreen() {
             Spacer(modifier = Modifier.height(40.dp))
             Button(
                 onClick = {},
-                shape = RoundedCornerShape(5.dp),
+                shape = RoundedCornerShape(10.dp),
                 modifier = Modifier.fillMaxWidth()
             ) {
                 Text("Login")
