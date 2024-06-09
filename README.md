@@ -1,5 +1,7 @@
 # ScreenshotTestSample
 
+This sample demonstrates the basic use of Compose preview screenshot testing. 
+
 # Requirements
 
 To use Compose Preview Screenshot Testing, you need the following:
