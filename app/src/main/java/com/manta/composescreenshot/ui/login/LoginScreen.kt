@@ -1,6 +1,7 @@
 package com.manta.composescreenshot.ui.login
 
 
+import android.annotation.SuppressLint
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
@@ -14,10 +15,13 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.outlined.Android
 import androidx.compose.material.icons.outlined.Key
 import androidx.compose.material3.Button
+import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
+import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -31,9 +35,13 @@ import com.manta.composescreenshot.ui.login.components.PasswordField
 import com.manta.composescreenshot.ui.login.components.UserIdField
 import com.manta.composescreenshot.ui.theme.ComposescreenshotTheme
 
+@SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun LoginScreen() {
-    Surface {
+    Scaffold(
+        topBar = { TopAppBar(title = { Text(text = "Login") }) }
+    ) {
         var uiState by remember { mutableStateOf(LoginUiState()) }
         Column(
             horizontalAlignment = Alignment.CenterHorizontally,
@@ -65,14 +73,27 @@ fun LoginScreen() {
             Spacer(modifier = Modifier.height(40.dp))
             Button(
                 onClick = {},
-                shape = RoundedCornerShape(10.dp),
-                modifier = Modifier.fillMaxWidth()
+                shape = RoundedCornerShape(30.dp),
+                modifier = Modifier.fillMaxWidth().padding(horizontal = 20.dp)
             ) {
                 Text("Login")
             }
+            PrimaryButton(title = "Login")
         }
     }
 }
+
+@Composable
+fun PrimaryButton( title:String){
+    Button(
+        modifier = Modifier.fillMaxWidth().padding(horizontal = 20.dp),
+        onClick = {},
+        shape = RoundedCornerShape(30.dp),
+    ) {
+        Text(title)
+    }
+}
+
 
 
 @Preview(showBackground = true, device = "id:Nexus One", showSystemUi = true)
